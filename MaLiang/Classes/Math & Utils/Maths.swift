@@ -21,12 +21,14 @@ struct Vertex {
 }
 
 struct Point {
+    
     var position: vector_float4
     var color: vector_float4
     var angle: Float
     var size: Float
 
     init(x: CGFloat, y: CGFloat, color: MLColor, size: CGFloat, angle: CGFloat = 0) {
+        
         self.position = vector_float4(Float(x), Float(y), 0, 1)
         self.size = Float(size)
         self.color = color.toFloat4()

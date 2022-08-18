@@ -95,13 +95,20 @@ open class LineStrip: CanvasElement {
                 let y = line.begin.y + (line.end.y - line.begin.y) * s
                 
                 var angle: CGFloat = 0
-                switch rotation {
-                case let .fixed(a): angle = a
-                case .random: angle = CGFloat.random(in: -CGFloat.pi ... CGFloat.pi)
-                case .ahead: angle = line.angle
+                switch rotation
+                {
+                case let .fixed(a):
+                    angle = a
+                case .random:
+                    angle = CGFloat.random(in: -CGFloat.pi ... CGFloat.pi)
+                case .ahead:
+                    angle = line.angle
                 }
                 
-                vertexes.append(Point(x: x, y: y, color: renderingColor, size: line.pointSize * scale, angle: angle))
+                vertexes.append(Point(x: x, y: y,
+                                      color: renderingColor,
+                                      size: line.pointSize * scale,
+                                      angle: angle))
             }
         }
         
