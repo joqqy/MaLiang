@@ -71,6 +71,7 @@ open class LineStrip: CanvasElement {
         var vertexes: [Point] = []
         
         lines.forEach { (line) in
+            
             let scale = brush?.target?.contentScaleFactor ?? UIScreen.main.nativeScale
             let count = max(line.length / line.pointStep, 1)
             
@@ -88,9 +89,10 @@ open class LineStrip: CanvasElement {
             // pi: interpolating between two points, .begin and .end
             // pi: compare bigbrush interpolate_f2(...)
             for i in 0 ..< Int(count) {
-                let index = CGFloat(i)
-                let x = line.begin.x + (line.end.x - line.begin.x) * (index / count)
-                let y = line.begin.y + (line.end.y - line.begin.y) * (index / count)
+                
+                let s = CGFloat(i) / CGFloat(count)
+                let x = line.begin.x + (line.end.x - line.begin.x) * s
+                let y = line.begin.y + (line.end.y - line.begin.y) * s
                 
                 var angle: CGFloat = 0
                 switch rotation {
