@@ -15,6 +15,7 @@ public struct Pan {
     var force: CGFloat
 
     init(touch: UITouch, on view: UIView) {
+        
         if #available(iOS 9.1, *) {
             point = touch.preciseLocation(in: view)
         } else {
@@ -256,6 +257,7 @@ open class Brush {
     private var lastRenderedPan: Pan?
     
     private func pushPoint(_ point: CGPoint, to bezier: BezierGenerator, force: CGFloat, isEnd: Bool = false, on canvas: Canvas) {
+        
         var lines: [MLLine] = []
         let vertices = bezier.pushPoint(point)
         guard vertices.count >= 2 else {

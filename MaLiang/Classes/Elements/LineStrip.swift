@@ -84,6 +84,9 @@ open class LineStrip: CanvasElement {
             renderingColor.alpha = renderingColor.alpha / Float(overlapping) * 2.5
 //            print("real color: \(renderingColor), overlapping: \(overlapping)")
             
+            
+            // pi: interpolating between two points, .begin and .end
+            // pi: compare bigbrush interpolate_f2(...)
             for i in 0 ..< Int(count) {
                 let index = CGFloat(i)
                 let x = line.begin.x + (line.end.x - line.begin.x) * (index / count)
